@@ -9,7 +9,7 @@ import {redirect} from "next/navigation";
 export type State = {
   errors?: {
     title?: string[];
-  };
+  },
   message?: string | null;
 };
 
