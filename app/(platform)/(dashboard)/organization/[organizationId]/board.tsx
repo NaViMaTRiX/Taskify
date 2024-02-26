@@ -8,7 +8,7 @@ interface BoardProps {
 
 export const Board = ({
     title,
-    id
+    id,
 }: BoardProps) => {
     const deleteBoardWithId = deleteBoard.bind(null, id);
 
