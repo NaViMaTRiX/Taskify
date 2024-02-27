@@ -13,7 +13,7 @@ export const Form = () => {
 	return (
 		<form action={dispatch}>
 			<div className="flex flex-col space-y-2">
-				<FormInput errors={state?.errors} />
+				<FormInput errors={state?.error} />
 			</div>
 			<FormButton />
 		</form>
