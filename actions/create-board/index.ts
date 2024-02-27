@@ -9,31 +9,32 @@ import { InputType, ReturnType } from "./types";
 import { CreateBoard } from "./schema";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-  const {userId} = auth();
+  const { userId } = auth();
 
-  if(!userId){
+  if (!userId) {
     return {
       error: "Unauthorized",
     };
   }
 
-  const {title} = data;
+  const { title } = data;
 
-  let board; 
+  let board;
 
-  try{
+  try {
+    throw new Error("");
     board = await db.board.create({
-      data:{
+      data: {
         title,
-      }
+      },
     });
-  } catch(error){
-    return{
-      error: "Faild to create."
-    }
+  } catch (error) {
+    return {
+      error: "Failed to create.",
+    };
   }
 
   revalidatePath(`/board/${board.id}`);
-  return{data: board};
-}
-  export const create = createSafeAction(CreateBoard, handler);
+  return { data: board };
+};
+export const createBoard = createSafeAction(CreateBoard, handler);
