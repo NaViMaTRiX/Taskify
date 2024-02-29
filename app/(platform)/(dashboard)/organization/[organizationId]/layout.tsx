@@ -6,10 +6,10 @@ const OrganizationIdLayout = ({
     children: React.ReactNode;
 }) => {
     return(
-        <div className="">
+        <>
             <OrgControl />
             {children}
-        </div>
+        </>
     );
 };
 
