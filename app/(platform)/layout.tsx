@@ -1,4 +1,5 @@
 import { ClerkProvider } from '@clerk/nextjs'
+import {Toaster} from "sonner"
  
 export default function RootLayout({
   children,
@@ -7,9 +8,8 @@ export default function RootLayout({
 }) {
   return (        
     <ClerkProvider>
-      <html lang="en">
-        <body>{children}</body>
-      </html>
+      <Toaster />
+      {children}
     </ClerkProvider>
   )
 }
