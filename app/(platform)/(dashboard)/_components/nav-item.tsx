@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import { Activity, CreditCard, Layout, Settings } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -22,14 +22,9 @@ interface NavItemProps {
 	isActive: boolean;
 	organization: Organization;
 	onExpand: (id: string) => void;
-};
+}
 
-export const NavItem = ({
-	isExpanded,
-	isActive,
-	organization,
-	onExpand,
-}: NavItemProps) => {
+export const NavItem = ({ isExpanded, isActive, organization, onExpand }: NavItemProps) => {
 	const router = useRouter();
 	const pathname = usePathname();
 
@@ -37,7 +32,7 @@ export const NavItem = ({
 		{
 			label: "Boards",
 			icon: <Layout className="h-4 w-4 mr-2" />,
-			href: ` /organization/${organization.id}`
+			href: ` /organization/${organization.id}`,
 		},
 		{
 			label: "Activity",
@@ -61,15 +56,12 @@ export const NavItem = ({
 	};
 
 	return (
-		<AccordionItem
-			value={organization.id}
-			className="border-none"
-		>
+		<AccordionItem value={organization.id} className="border-none">
 			<AccordionTrigger
 				onClick={() => onExpand(organization.id)}
 				className={cn(
 					"flex items-center gap-x-2 p-1.5 text-neutral-700 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline",
-					isActive && !isExpanded && "bg-sky-500/10 text-sky-700"
+					isActive && !isExpanded && "bg-sky-500/10 text-sky-700",
 				)}
 			>
 				<div className="flex items-center gap-x-2">
@@ -81,9 +73,7 @@ export const NavItem = ({
 							className="rounded-sm object-cover"
 						/>
 					</div>
-					<span className="font-medium text-sm">
-						{organization.name}
-					</span>
+					<span className="font-medium text-sm">{organization.name}</span>
 				</div>
 			</AccordionTrigger>
 			<AccordionContent className="pt-1 text-neutral-700">
@@ -94,7 +84,7 @@ export const NavItem = ({
 						onClick={() => onClick(route.href)}
 						className={cn(
 							"w-full font-normal justify-start pl-10 mb-1",
-							pathname === route.href && "bg-sky-500/10 text-sky-700"
+							pathname === route.href && "bg-sky-500/10 text-sky-700",
 						)}
 						variant="ghost"
 					>
@@ -102,7 +92,6 @@ export const NavItem = ({
 						{route.label}
 					</Button>
 				))}
-
 			</AccordionContent>
 		</AccordionItem>
 	);

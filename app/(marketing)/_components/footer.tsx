@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const Footer = () => {
-	return(
+	return (
 		<div className="fixed bottom-0 w-full p-4 border-t bg-slate-100">
 			<div className="md:max-w-screen-2xl mx-auto flex items-center w-full justify-between">
 				<Logo />
