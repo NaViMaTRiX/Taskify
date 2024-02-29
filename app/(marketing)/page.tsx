@@ -19,7 +19,12 @@ const textFont = Poppins({
 const MarketingPage = () => {
 	return (
 		<div className="flex items-center justify-center flex-col">
-			<div className={cn("flex items-center justify-center flex-col", headingFont.className)}>
+			<div
+				className={cn(
+					"flex items-center justify-center flex-col",
+					headingFont.className,
+				)}
+			>
 				<div
 					className="mb-4 flex items-center border sgadow-sm p-4
 				bg-amber-100 text-amber-700 rounded-full uppercase"
@@ -43,8 +48,9 @@ const MarketingPage = () => {
 					textFont.className,
 				)}
 			>
-				Collaborate, manage project, and reach new productivity peaks. From high rises to the home
-				office, the way your team works is unique - accomplish it all with Taskify.
+				Collaborate, manage project, and reach new productivity peaks. From high
+				rises to the home office, the way your team works is unique - accomplish
+				it all with Taskify.
 			</div>
 			<Button className="mt-6" size={"lg"} asChild>
 				<Link href="/sign-up">Get Taskify for free</Link>

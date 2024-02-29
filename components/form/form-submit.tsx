@@ -10,10 +10,22 @@ interface FormSubmitProps {
 	children: React.ReactNode;
 	disabled?: boolean;
 	className?: string;
-	variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | "primary";
+	variant?:
+		| "default"
+		| "destructive"
+		| "outline"
+		| "secondary"
+		| "ghost"
+		| "link"
+		| "primary";
 }
 
-export const FormSubmit = ({ children, disabled, className, variant }: FormSubmitProps) => {
+export const FormSubmit = ({
+	children,
+	disabled,
+	className,
+	variant,
+}: FormSubmitProps) => {
 	const { pending } = useFormStatus();
 
 	return (

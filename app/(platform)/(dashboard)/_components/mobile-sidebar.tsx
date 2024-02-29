@@ -31,7 +31,12 @@ export const MobileSidebar = () => {
 
 	return (
 		<>
-			<Button onClick={onOpen} className="block md:hidden mr-2" variant="ghost" size="sm">
+			<Button
+				onClick={onOpen}
+				className="block md:hidden mr-2"
+				variant="ghost"
+				size="sm"
+			>
 				<Menu className="h-4 w-4" />
 			</Button>
 			<Sheet open={isOpen} onOpenChange={onClose}>

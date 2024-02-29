@@ -7,7 +7,11 @@ import { Activity, CreditCard, Layout, Settings } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-import { AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export type Organization = {
@@ -24,7 +28,12 @@ interface NavItemProps {
 	onExpand: (id: string) => void;
 }
 
-export const NavItem = ({ isExpanded, isActive, organization, onExpand }: NavItemProps) => {
+export const NavItem = ({
+	isExpanded,
+	isActive,
+	organization,
+	onExpand,
+}: NavItemProps) => {
 	const router = useRouter();
 	const pathname = usePathname();
 
