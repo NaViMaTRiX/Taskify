@@ -27,7 +27,7 @@ Key Features:
 
 ### Setup Prisma
 
-Add MySQL Database (I used PlanetScale)
+Add PostgreSQL Database (I used Neon)
 
 ```shell
 npx prisma generate
