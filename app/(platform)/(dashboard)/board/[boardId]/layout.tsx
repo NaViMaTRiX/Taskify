@@ -5,11 +5,11 @@ import { db } from "@/lib/db";
 
 import { BoardNavbar } from "./_components/board-navbar";
 
-export async function generateMetadata({ 
+export async function generateMetadata({
   params
- }: {
+}: {
   params: { boardId: string; };
- }) {
+}) {
   const { orgId } = auth();
 
   if (!orgId) {

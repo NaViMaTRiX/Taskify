@@ -10,9 +10,9 @@ import {
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { 
+import {
   AccordionContent,
-  AccordionItem, 
+  AccordionItem,
   AccordionTrigger
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -43,22 +43,22 @@ export const NavItem = ({
 
   const routes = [
     {
-      label: "Boards",
+      label: "Доски",
       icon: <Layout className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}`,
     },
     {
-      label: "Activity",
+      label: "Активность",
       icon: <Activity className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}/activity`,
     },
     {
-      label: "Settings",
+      label: "Настройки",
       icon: <Settings className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}/settings`,
     },
     {
-      label: "Billing",
+      label: "Подписка",
       icon: <CreditCard className="h-4 w-4 mr-2" />,
       href: `/organization/${organization.id}/billing`,
     },
@@ -89,19 +89,19 @@ export const NavItem = ({
               className="rounded-sm object-cover"
             />
           </div>
-          <span className="font-medium text-sm">
+          <span className="font-medium text-sm dark:text-white">
             {organization.name}
           </span>
         </div>
       </AccordionTrigger>
-      <AccordionContent className="pt-1 text-neutral-700">
+      <AccordionContent className="pt-1 text-neutral-700 dark:text-slate-400">
         {routes.map((route) => (
           <Button
             key={route.href}
             size="sm"
             onClick={() => onClick(route.href)}
             className={cn(
-              "w-full font-normal justify-start pl-10 mb-1",
+              "w-full font-normal justify-start pl-10 mb-1 hover:dark:bg-gray-700",
               pathname === route.href && "bg-sky-500/10 text-sky-700"
             )}
             variant="ghost"

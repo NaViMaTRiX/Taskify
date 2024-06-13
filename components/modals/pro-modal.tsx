@@ -24,7 +24,7 @@ export const ProModal = () => {
   const onClick = () => {
     execute({});
   };
-  
+
   return (
     <Dialog
       open={proModal.isOpen}
@@ -40,14 +40,14 @@ export const ProModal = () => {
           />
         </div>
         <div className="text-neutral-700 mx-auto space-y-6 p-6">
-          <h2 className="font-semibold text-xl">
+          <h2 className="font-semibold text-xl dark:text-white">
             Upgrade to Taskify Pro Today!
           </h2>
-          <p className="text-xs font-semibold text-neutral-600">
+          <p className="text-xs font-semibold text-neutral-600 dark:text-white">
             Explore the best of Taskify
           </p>
           <div className="pl-3">
-            <ul className="text-sm list-disc">
+            <ul className="text-sm list-disc dark:text-slate-400">
               <li>Unlimited boards</li>
               <li>Advanced checklists</li>
               <li>Admin and security features</li>
@@ -57,7 +57,7 @@ export const ProModal = () => {
           <Button
             disabled={isLoading}
             onClick={onClick}
-            className="w-full"
+            className="w-full dark:text-white shadow-lg bg-blue-500 shadow-lg shadow-blue-500/50"
             variant="primary"
           >
             Upgrade

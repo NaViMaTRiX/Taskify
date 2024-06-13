@@ -32,9 +32,9 @@ export const BoardList = async () => {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center font-semibold text-lg text-neutral-700">
-        <User2 className="h-6 w-6 mr-2" />
-        Your boards
+      <div className="flex items-center font-semibold text-lg text-neutral-700 dark:text-white">
+        <User2 className="h-6 w-6 mr-2 dark:text-white" />
+        Ваши доски
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {boards.map((board) => (
@@ -45,7 +45,7 @@ export const BoardList = async () => {
             style={{ backgroundImage: `url(${board.imageThumbUrl})` }}
           >
             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition" />
-            <p className="relative font-semibold text-white">
+            <p className="relative font-semibold text-white dark:text-slate-200">
               {board.title}
             </p>
           </Link>
@@ -55,9 +55,9 @@ export const BoardList = async () => {
             role="button"
             className="aspect-video relative h-full w-full bg-muted rounded-sm flex flex-col gap-y-1 items-center justify-center hover:opacity-75 transition"
           >
-            <p className="text-sm">Create new board</p>
+            <p className="text-sm">Создать доску</p>
             <span className="text-xs">
-              {isPro ? "Unlimited" : `${MAX_FREE_BOARDS - availableCount} remaining`}
+              {isPro ? "Безлимита" : `${MAX_FREE_BOARDS - availableCount} осталось`}
             </span>
             <Hint
               sideOffset={40}

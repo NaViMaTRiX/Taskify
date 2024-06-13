@@ -11,6 +11,10 @@ import { Button } from "@/components/ui/button";
 import { deleteCard } from "@/actions/delete-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useCardModal } from "@/hooks/use-card-modal";
+import { Calendar } from "lucide-react";
+import { useDateTimeStore } from "@/hooks/use-datetime";
+import React from "react";
+
 
 interface ActionsProps {
   data: CardWithList;
@@ -22,7 +26,11 @@ export const Actions = ({
   const params = useParams();
   const cardModal = useCardModal();
 
-  const { 
+  const isVisible = useDateTimeStore(state => state.isVisible);
+  const onOpen = useDateTimeStore(state => state.onOpen);
+  const onClose = useDateTimeStore(state => state.onClose);
+
+  const {
     execute: executeCopyCard,
     isLoading: isLoadingCopy,
   } = useAction(copyCard, {
@@ -35,7 +43,7 @@ export const Actions = ({
     },
   });
 
-  const { 
+  const {
     execute: executeDeleteCard,
     isLoading: isLoadingDelete,
   } = useAction(deleteCard, {
@@ -65,12 +73,21 @@ export const Actions = ({
       boardId,
     });
   };
-  
+
   return (
     <div className="space-y-2 mt-2">
       <p className="text-xs font-semibold">
         Actions
       </p>
+      <Button
+        variant="gray"
+        className="w-full justify-start"
+        size="inline"
+        onClick={isVisible ? onClose : onOpen}
+      >
+        <Calendar className="h-4 w-4 mr-2" />
+        Dates
+      </Button>
       <Button
         onClick={onCopy}
         disabled={isLoadingCopy}
@@ -99,6 +116,7 @@ Actions.Skeleton = function ActionsSkeleton() {
   return (
     <div className="space-y-2 mt-2">
       <Skeleton className="w-20 h-4 bg-neutral-200" />
+      <Skeleton className="w-full h-8 bg-neutral-200" />
       <Skeleton className="w-full h-8 bg-neutral-200" />
       <Skeleton className="w-full h-8 bg-neutral-200" />
     </div>

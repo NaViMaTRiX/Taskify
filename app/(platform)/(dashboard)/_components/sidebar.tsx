@@ -28,7 +28,7 @@ export const Sidebar = ({
     organization: activeOrganization,
     isLoaded: isLoadedOrg
   } = useOrganization();
-  const { 
+  const {
     userMemberships,
     isLoaded: isLoadedOrgList
   } = useOrganizationList({
@@ -44,7 +44,7 @@ export const Sidebar = ({
       }
 
       return acc;
-  }, []);
+    }, []);
 
   const onExpand = (id: string) => {
     setExpanded((curr) => ({
@@ -73,7 +73,7 @@ export const Sidebar = ({
     <>
       <div className="font-medium text-xs flex items-center mb-1">
         <span className="pl-4">
-          Workspaces
+          Рабочие пространства
         </span>
         <Button
           asChild
@@ -84,7 +84,7 @@ export const Sidebar = ({
         >
           <Link href="/select-org">
             <Plus
-              className="h-4 w-4"
+              className="h-4 w-4 dark:text-white"
             />
           </Link>
         </Button>

@@ -67,7 +67,7 @@ export const FormPopover = ({
         side={side}
         sideOffset={sideOffset}
       >
-        <div className="text-sm font-medium text-center text-neutral-600 pb-4">
+        <div className="text-sm font-medium text-center text-neutral-600 pb-4 dark:text-white">
           Create board
         </div>
         <PopoverClose ref={closeRef} asChild>
@@ -91,7 +91,7 @@ export const FormPopover = ({
               errors={fieldErrors}
             />
           </div>
-          <FormSubmit className="w-full">
+          <FormSubmit className="w-full dark:text-white">
             Create
           </FormSubmit>
         </form>

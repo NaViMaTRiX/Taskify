@@ -35,16 +35,16 @@ export const BoardOptions = ({ id }: BoardOptionsProps) => {
           <MoreHorizontal className="h-4 w-4" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent 
-        className="px-0 pt-3 pb-3" 
-        side="bottom" 
+      <PopoverContent
+        className="px-0 pt-3 pb-3"
+        side="bottom"
         align="start"
       >
-        <div className="text-sm font-medium text-center text-neutral-600 pb-4">
+        <div className="text-sm font-medium text-center text-neutral-600 pb-4 dark:text-white">
           Board actions
         </div>
         <PopoverClose asChild>
-          <Button 
+          <Button
             className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600"
             variant="ghost"
           >
@@ -55,7 +55,7 @@ export const BoardOptions = ({ id }: BoardOptionsProps) => {
           variant="ghost"
           onClick={onDelete}
           disabled={isLoading}
-          className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
+          className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm dark:text-white"
         >
           Delete this board
         </Button>

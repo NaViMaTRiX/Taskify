@@ -11,9 +11,9 @@ interface SubscriptionButtonProps {
   isPro: boolean;
 };
 
-export const SubscriptionButton = ({ 
+export const SubscriptionButton = ({
   isPro,
- }: SubscriptionButtonProps) => {
+}: SubscriptionButtonProps) => {
   const proModal = useProModal();
 
   const { execute, isLoading } = useAction(stripeRedirect, {
@@ -38,6 +38,7 @@ export const SubscriptionButton = ({
       variant="primary"
       onClick={onClick}
       disabled={isLoading}
+      className="dark:text-white"
     >
       {isPro ? "Manage subscription" : "Upgrade to pro"}
     </Button>
