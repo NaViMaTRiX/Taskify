@@ -53,7 +53,6 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 				description: cardToCopy.description,
 				order: newOrder,
 				listId: cardToCopy.listId,
-				time: new Date().toLocaleDateString(),
 			},
 		});
 

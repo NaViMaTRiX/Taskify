@@ -45,7 +45,7 @@ model Card {
   title       String
   order       Int
   description String? @db.Text
-  time        DateTime
+  time        DateTime? @default(now())
 
   listId      String
   list        List  @relation(fields: [listId], references: [id], onDelete: Cascade)
