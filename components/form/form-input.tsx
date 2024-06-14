@@ -58,7 +58,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(({
           type={type}
           disabled={pending || disabled}
           className={cn(
-            "text-sm px-2 py-1 h-7",
+            "dark:text-white text-sm px-2 py-1 h-7",
             className,
           )}
           aria-describedby={`${id}-error`}

@@ -2,10 +2,10 @@
 
 import { toast } from "sonner";
 import { Plus, X } from "lucide-react";
-import { 
-  forwardRef, 
-  useRef, 
-  ElementRef, 
+import {
+  forwardRef,
+  useRef,
+  ElementRef,
   KeyboardEventHandler,
 } from "react";
 import { useParams } from "next/navigation";
@@ -78,7 +78,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(({
           id="title"
           onKeyDown={onTextareakeyDown}
           ref={ref}
-          placeholder="Enter a title for this card..."
+          placeholder="Введите название для этой карточки..."
           errors={fieldErrors}
         />
         <input
@@ -88,7 +88,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(({
           value={listId}
         />
         <div className="flex items-center gap-x-1">
-          <FormSubmit>
+          <FormSubmit className="dark:text-white">
             Add card
           </FormSubmit>
           <Button onClick={disableEditing} size="sm" variant="ghost">
@@ -108,7 +108,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(({
         variant="ghost"
       >
         <Plus className="h-4 w-4 mr-2" />
-        Add a card
+        Добавить карточку
       </Button>
     </div>
   );

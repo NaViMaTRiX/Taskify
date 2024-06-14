@@ -77,36 +77,36 @@ export const Actions = ({
   return (
     <div className="space-y-2 mt-2">
       <p className="text-xs font-semibold">
-        Actions
+        Действия
       </p>
       <Button
         variant="gray"
-        className="w-full justify-start"
+        className="w-full justify-start dark:bg-slate-700 dark:hover:bg-slate-600"
         size="inline"
         onClick={isVisible ? onClose : onOpen}
       >
         <Calendar className="h-4 w-4 mr-2" />
-        Dates
+        Дата
       </Button>
       <Button
         onClick={onCopy}
         disabled={isLoadingCopy}
         variant="gray"
-        className="w-full justify-start"
+        className="w-full justify-start dark:bg-slate-700 dark:hover:bg-slate-600"
         size="inline"
       >
         <Copy className="h-4 w-4 mr-2" />
-        Copy
+        Скопировать
       </Button>
       <Button
         onClick={onDelete}
         disabled={isLoadingDelete}
         variant="gray"
-        className="w-full justify-start"
+        className="w-full justify-start dark:bg-slate-700 dark:hover:bg-slate-600"
         size="inline"
       >
         <Trash className="h-4 w-4 mr-2" />
-        Delete
+        Удалить
       </Button>
     </div>
   );

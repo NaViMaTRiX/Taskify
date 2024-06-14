@@ -41,7 +41,7 @@ export const BoardOptions = ({ id }: BoardOptionsProps) => {
         align="start"
       >
         <div className="text-sm font-medium text-center text-neutral-600 pb-4 dark:text-white">
-          Board actions
+          Активность по доске
         </div>
         <PopoverClose asChild>
           <Button
@@ -57,7 +57,7 @@ export const BoardOptions = ({ id }: BoardOptionsProps) => {
           disabled={isLoading}
           className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm dark:text-white"
         >
-          Delete this board
+          Удалить эту доску
         </Button>
       </PopoverContent>
     </Popover>
