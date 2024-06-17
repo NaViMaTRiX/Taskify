@@ -89,7 +89,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(({
         />
         <div className="flex items-center gap-x-1">
           <FormSubmit className="dark:text-white">
-            Add card
+            Добавить карточку
           </FormSubmit>
           <Button onClick={disableEditing} size="sm" variant="ghost">
             <X className="h-5 w-5" />
@@ -103,7 +103,7 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(({
     <div className="pt-2 px-2">
       <Button
         onClick={enableEditing}
-        className="h-auto px-2 py-1.5 w-full justify-start text-muted-foreground text-sm"
+        className="h-auto px-2 py-1.5 w-full justify-start text-muted-foreground text-sm hover:dark:bg-gray-700"
         size="sm"
         variant="ghost"
       >

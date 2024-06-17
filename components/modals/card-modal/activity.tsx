@@ -1,7 +1,7 @@
 "use client";
 
 import { AuditLog } from "@prisma/client";
-import { ActivityIcon } from "lucide-react";
+import { ActivityIcon, ChevronDown } from "lucide-react";
 
 import { Skeleton } from "@/components/ui/skeleton";
 import { ActivityItem } from "@/components/activity-item";
@@ -15,7 +15,7 @@ export const Activity = ({
 }: ActivityProps) => {
   return (
     <div className="flex items-start gap-x-3 w-full">
-      <ActivityIcon className="h-5 w-5 mt-0.5 text-neutral-700 dark:fill-white" />
+      <ActivityIcon className="h-5 w-5 mt-0.5 text-neutral-700 dark:stroke-white" />
       <div className="w-full">
         <p className="font-semibold text-neutral-700 mb-2 dark:text-white">
           Активность
@@ -29,6 +29,7 @@ export const Activity = ({
           ))}
         </ol>
       </div>
+      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 dark:stroke-white" />
     </div>
   );
 };

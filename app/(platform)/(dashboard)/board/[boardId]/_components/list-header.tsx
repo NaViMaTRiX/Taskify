@@ -78,11 +78,11 @@ export const ListHeader = ({
   useEventListener("keydown", onKeyDown);
 
   return (
-    <div className="pt-2 px-2 text-sm font-semibold flex justify-between items-start- gap-x-2">
+    <div className="pt-2 px-2 text-sm font-semibold flex flex-row justify-between items-start- gap-x-2">
       {isEditing ? (
-        <form 
+        <form
           ref={formRef}
-          action={handleSubmit}  
+          action={handleSubmit}
           className="flex-1 px-[2px]"
         >
           <input hidden id="id" name="id" value={data.id} />

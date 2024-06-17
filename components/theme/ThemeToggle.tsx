@@ -6,20 +6,20 @@ import { BsSunFill } from "react-icons/bs";
 
 const ThemeToggle = () => {
 
-  const [darkMode, setDartMode] = useState(false);
+  const [darkMode, setDartMode] = useState<boolean>(JSON.parse(localStorage.getItem('theme') || 'false'));
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
-    if (theme === "dark") setDartMode(true);
+    if (theme === "true") setDartMode(true);
   }, []);
 
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+      localStorage.setItem("theme", "true");
     } else {
       document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+      localStorage.setItem("theme", "false");
     }
   }, [darkMode]);
 

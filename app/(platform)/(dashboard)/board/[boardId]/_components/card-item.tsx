@@ -25,7 +25,7 @@ export const CardItem = ({
           ref={provided.innerRef}
           role="button"
           onClick={() => cardModal.onOpen(data.id)}
-          className="dark:bg-slate-600 dark:hover:border-white truncate border-2 border-transparent hover:border-black py-2 px-3 text-sm bg-white rounded-md shadow-sm"
+          className="dark:bg-slate-600 dark:hover:border-white truncate border-2 max-w-228 border-transparent hover:border-black py-2 px-3 text-sm bg-white rounded-md shadow-sm"
         >
           {data.title}
         </div>

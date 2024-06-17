@@ -79,7 +79,7 @@ export const Description = ({
 
   return (
     <div className="flex items-start gap-x-3 w-full">
-      <AlignLeft className="dark:fill-white h-5 w-5 mt-0.5 text-neutral-700" />
+      <AlignLeft className="dark:stroke-white h-5 w-5 mt-0.5 text-neutral-700" />
       <div className="w-full">
         <p className="font-semibold text-neutral-700 mb-2 dark:text-white">
           Описание
@@ -99,7 +99,7 @@ export const Description = ({
               ref={textareaRef}
             />
             <div className="flex items-center gap-x-2">
-              <FormSubmit>
+              <FormSubmit className="dark:text-white">
                 Сохранить
               </FormSubmit>
               <Button
@@ -107,6 +107,7 @@ export const Description = ({
                 onClick={disableEditing}
                 size="sm"
                 variant="ghost"
+                className="hover:dark:bg-gray-700"
               >
                 Отменить
               </Button>

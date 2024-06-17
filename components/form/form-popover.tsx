@@ -68,7 +68,7 @@ export const FormPopover = ({
         sideOffset={sideOffset}
       >
         <div className="text-sm font-medium text-center text-neutral-600 pb-4 dark:text-white">
-          Create board
+          Создать доску
         </div>
         <PopoverClose ref={closeRef} asChild>
           <Button
@@ -86,13 +86,13 @@ export const FormPopover = ({
             />
             <FormInput
               id="title"
-              label="Board title"
+              label="Название доски"
               type="text"
               errors={fieldErrors}
             />
           </div>
           <FormSubmit className="w-full dark:text-white">
-            Create
+            Создать
           </FormSubmit>
         </form>
       </PopoverContent>

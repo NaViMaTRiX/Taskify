@@ -15,21 +15,21 @@ const PlatformLayout = ({
   children: React.ReactNode;
 }) => {
 
-  const theme = localStorage.getItem("theme");
 
-  const [darkMode, setDartMode] = useState(false);
+  const [darkMode, setDartMode] = useState<boolean>(JSON.parse(localStorage.getItem('theme') || 'false'));
 
   useEffect(() => {
-    if (theme === "dark") setDartMode(true);
+    const theme = localStorage.getItem("theme");
+    if (theme === "true") setDartMode(true);
   }, []);
 
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+      localStorage.setItem("theme", "true");
     } else {
       document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+      localStorage.setItem("theme", "false");
     }
   }, [darkMode]);
 
@@ -37,7 +37,7 @@ const PlatformLayout = ({
     <ClerkProvider
       localization={ruRU}
       appearance={{
-        baseTheme: theme === 'dark' ? dark : experimental__simple,
+        baseTheme: darkMode ? dark : experimental__simple,
         layout: {
           logoPlacement: "none",
           showOptionalFields: true,

@@ -154,9 +154,9 @@ export const ListContainer = ({
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="lists" type="list" direction="horizontal">
         {(provided) => (
-          <ol 
+          <ol
             {...provided.droppableProps}
-            ref={provided.innerRef}  
+            ref={provided.innerRef}
             className="flex gap-x-3 h-full"
           >
             {orderedData.map((list, index) => {
