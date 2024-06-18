@@ -6,7 +6,6 @@ import { useLocalStorage } from "usehooks-ts";
 import { useOrganization, useOrganizationList } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Accordion } from "@/components/ui/accordion";
 
@@ -19,7 +18,7 @@ interface SidebarProps {
 export const Sidebar = ({
   storageKey = "t-sidebar-state",
 }: SidebarProps) => {
-  const [expanded, setExpanded] = useLocalStorage<Record<string, any>>(
+  const [expanded, setExpanded] = useLocalStorage<Record<string, any>>( // создание переменной для 
     storageKey,
     {}
   );
@@ -64,6 +63,8 @@ export const Sidebar = ({
           <NavItem.Skeleton />
           <NavItem.Skeleton />
           <NavItem.Skeleton />
+          <NavItem.Skeleton />
+          <NavItem.Skeleton />
         </div>
       </>
     );
@@ -80,7 +81,7 @@ export const Sidebar = ({
           type="button"
           size="icon"
           variant="ghost"
-          className="ml-auto"
+          className="ml-auto dark:hover:bg-slate-600"
         >
           <Link href="/select-org">
             <Plus

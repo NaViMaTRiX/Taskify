@@ -20,7 +20,8 @@ export const ActivityItem = ({
         <p className="text-sm text-muted-foreground">
           <span className="font-semibold lowercase text-neutral-700 dark:text-white">
             {data.userName}
-          </span> {generateLogMessage(data)}
+          </span>
+          <span className="break-words"> {generateLogMessage(data)}</span>
         </p>
         <p className="text-xs text-muted-foreground">
           {format(new Date(data.createdAt), "MMM d, yyyy 'at' h:mm a")}
