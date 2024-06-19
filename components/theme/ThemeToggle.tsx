@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import { FaMoon } from "react-icons/fa";
 import { BsSunFill } from "react-icons/bs";
+import { useLocalStorage } from "usehooks-ts";
 
 const ThemeToggle = () => {
 
-  const [darkMode, setDartMode] = useState<boolean>(JSON.parse(localStorage.getItem('theme') || 'false'));
+
+  const [darkMode, setDartMode] = useState<boolean | null>(null);
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
