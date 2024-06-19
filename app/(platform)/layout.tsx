@@ -8,7 +8,6 @@ import { dark, experimental__simple } from "@clerk/themes";
 import { ModalProvider } from "@/components/providers/modal-provider";
 import { QueryProvider } from "@/components/providers/query-provider";
 import { useEffect, useState } from "react";
-import { useLocalStorage } from "usehooks-ts";
 
 const PlatformLayout = ({
   children
@@ -16,46 +15,32 @@ const PlatformLayout = ({
   children: React.ReactNode;
 }) => {
 
-  localStorage.setItem("theme", "true");
-  const [darkMode, setDartMode] = useState<boolean>(JSON.parse(localStorage.getItem("theme") || "false"));
+  let darkModeValid;
+  if (typeof window !== 'undefined') {
+    const [darkMode, setDartMode] = useState<boolean | null>(JSON.parse(localStorage.getItem("theme") || "false"));
 
-  // interface DarkModeProps {
-  //   storageKey?: string;
-  // };
+    useEffect(() => {
+      const theme = localStorage.getItem("theme");
+      if (theme === "true") setDartMode(true);
+    }, []);
 
-  // const DarkMode = ({
-  //   storageKey = "theme",
-  // }: DarkModeProps) => {
-  //   const [darkMode, setDartMode] = useLocalStorage<Record<string, boolean>>( // создание переменной для 
-  //     storageKey,
-  //     {}
-  //   );
-
-
-  // const [darkMode, setDartMode] = useState<boolean | null>();
-
-
-  useEffect(() => {
-    const theme = localStorage.getItem("theme");
-    if (theme === "true") setDartMode(true);
-  }, []);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "false");
-    }
-    console.log(darkMode);
-  }, [darkMode]);
+    useEffect(() => {
+      if (darkMode) {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "true");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("theme", "false");
+      }
+    }, [darkMode]);
+    darkModeValid = darkMode;
+  }
 
   return (
     <ClerkProvider
       localization={ruRU}
       appearance={{
-        baseTheme: darkMode ? dark : experimental__simple,
+        baseTheme: darkModeValid ? dark : experimental__simple,
         layout: {
           logoPlacement: "none",
           showOptionalFields: true,
