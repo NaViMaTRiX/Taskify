@@ -8,7 +8,9 @@ import { dark, experimental__simple } from "@clerk/themes";
 import { ModalProvider } from "@/components/providers/modal-provider";
 import { QueryProvider } from "@/components/providers/query-provider";
 import { useEffect, useState } from "react";
-import { useLocalStorage } from "usehooks-ts";
+import { PrimeReactProvider } from 'primereact/api';
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+        
 
 const PlatformLayout = ({
   children
@@ -48,26 +50,27 @@ const PlatformLayout = ({
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "false");
     }
-    console.log(darkMode);
   }, [darkMode]);
 
   return (
-    <ClerkProvider
-      localization={ruRU}
-      appearance={{
-        baseTheme: darkMode ? dark : experimental__simple,
-        layout: {
-          logoPlacement: "none",
-          showOptionalFields: true,
-        }
-      }}
-    >
-      <QueryProvider>
-        <Toaster />
-        <ModalProvider />
-        {children}
-      </QueryProvider>
-    </ClerkProvider>
+    <PrimeReactProvider>
+      <ClerkProvider
+        localization={ruRU}
+        appearance={{
+          baseTheme: darkMode ? dark : experimental__simple,
+          layout: {
+            logoPlacement: "none",
+            showOptionalFields: true,
+          }
+        }}
+      >
+        <QueryProvider>
+            <Toaster />
+            <ModalProvider />
+            {children}
+        </QueryProvider>
+      </ClerkProvider>
+    </PrimeReactProvider>
   );
 };
 

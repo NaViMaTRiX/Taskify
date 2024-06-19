@@ -1,0 +1,12 @@
+.range-picker-input {
+  width: 200px;
+  height: 30px;
+  border-radius: 0.5rem;
+}
+
+.picker-input__text {
+  height:-webkit-fill-available;
+  border-radius: 0.375rem;
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+}
