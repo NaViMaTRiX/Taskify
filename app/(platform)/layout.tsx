@@ -40,22 +40,22 @@ const PlatformLayout = ({
 
   return (
     <PrimeReactProvider>
-    <ClerkProvider
-      localization={ruRU}
-      appearance={{
-        baseTheme: darkModeValid ? dark : experimental__simple,
-        layout: {
-          logoPlacement: "none",
-          showOptionalFields: true,
-        }
-      }}
-    >
-      <QueryProvider>
-        <Toaster />
-        <ModalProvider />
-        {children}
-      </QueryProvider>
-    </ClerkProvider>
+      <ClerkProvider
+        localization={ruRU}
+        appearance={{
+          baseTheme: darkModeValid ? dark : experimental__simple,
+          layout: {
+            logoPlacement: "none",
+            showOptionalFields: true,
+          }
+        }}
+      >
+        <QueryProvider>
+          <Toaster />
+          <ModalProvider />
+          {children}
+        </QueryProvider>
+      </ClerkProvider>
     </PrimeReactProvider>
   );
 };
