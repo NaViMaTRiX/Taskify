@@ -18,15 +18,17 @@ const PlatformLayout = ({
 }) => {
 
   let darkModeValid;
-  if (typeof window !== 'undefined') {
-    const [darkMode, setDartMode] = useState<boolean | null>(JSON.parse(localStorage.getItem("theme") || "false"));
+  const [darkMode, setDartMode] = useState<boolean | null>(JSON.parse(localStorage.getItem("theme") || "false"));
 
-    useEffect(() => {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
       const theme = localStorage.getItem("theme");
       if (theme === "true") setDartMode(true);
-    }, []);
+    }
+  }, []);
 
-    useEffect(() => {
+  useEffect(() => {
+    if (darkMode !== null) {
       if (darkMode) {
         document.documentElement.classList.add("dark");
         localStorage.setItem("theme", "true");
@@ -34,9 +36,9 @@ const PlatformLayout = ({
         document.documentElement.classList.remove("dark");
         localStorage.setItem("theme", "false");
       }
-    }, [darkMode]);
-    darkModeValid = darkMode;
-  }
+    }
+  }, [darkMode]);
+  darkModeValid = darkMode;
 
   return (
     <PrimeReactProvider>
