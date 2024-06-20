@@ -10,6 +10,10 @@ import { QueryProvider } from "@/components/providers/query-provider";
 import { useEffect, useState } from "react";
 import { PrimeReactProvider } from 'primereact/api';
 import "primereact/resources/themes/lara-light-cyan/theme.css";
+import dynamic from 'next/dynamic'
+
+const DynamicPlatformLayout = dynamic(() => import("../(platform)/layout"), { ssr: false, }
+);
 
 const PlatformLayout = ({
   children
