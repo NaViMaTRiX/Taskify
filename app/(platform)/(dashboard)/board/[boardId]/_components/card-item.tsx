@@ -46,7 +46,7 @@ export const CardItem = ({ data, index }: CardItemProps) => {
           />
           <span
             onClick={() => cardModal.onOpen(data.id)}
-            className={`flex-1 transition-all duration-200 break-words overflow-hidden cursor-pointer ${checked ? "text-gray-400" : "group-hover:translate-x-7 text-gray-200"
+            className={`flex-1 transition-all duration-200 break-words overflow-hidden cursor-pointer ${checked ? "dark:text-gray-400" : "group-hover:translate-x-7 dark:text-gray-200"
               }`}
           >
             {data.title}
