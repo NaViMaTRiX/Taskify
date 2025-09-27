@@ -31,7 +31,7 @@ export const CardItem = ({ data, index }: CardItemProps) => {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className="group relative flex items-center dark:bg-slate-600 dark:hover:border-white border-2 border-transparent py-2 pl-3 pr-3 text-sm bg-white dark:bg-slate-700 rounded-md shadow-sm w-full overflow-hidden"
+          className="group relative flex items-center dark:bg-slate-600 dark:hover:border-white border-2 border-transparent py-2 pl-3 pr-8 text-sm bg-white dark:bg-slate-700 rounded-md shadow-sm w-full overflow-hidden"
         >
           <input
             type="checkbox"
@@ -47,8 +47,7 @@ export const CardItem = ({ data, index }: CardItemProps) => {
           <span
             onClick={() => cardModal.onOpen(data.id)}
             className={`flex-1 transition-all duration-200 break-words overflow-hidden cursor-pointer ${checked ? "dark:text-gray-400" : "group-hover:translate-x-7 dark:text-gray-200"
-              }`}
-          >
+              }`}>
             {data.title}
           </span>
         </div>
