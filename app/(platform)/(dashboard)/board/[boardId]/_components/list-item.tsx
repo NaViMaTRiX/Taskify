@@ -2,7 +2,6 @@
 
 import { ElementRef, useRef, useState, useEffect } from "react";
 import { Draggable, Droppable } from "@hello-pangea/dnd";
-import { motion, AnimatePresence } from "framer-motion";
 
 import { ListWithCards } from "@/types";
 import { CardForm } from "./card-form";
@@ -18,8 +17,14 @@ export const ListItem = ({ data, index }: ListItemProps) => {
   const textareaRef = useRef<ElementRef<"textarea">>(null);
   const [isEditing, setIsEditing] = useState(false);
 
-  // Состояние показа выполненных карточек
+  // Состояние архивации списка с localStorage
+  const storageKey = `list-archive-${data.id}`;
   const [showChecked, setShowChecked] = useState(true);
+
+  useEffect(() => {
+    const stored = localStorage.getItem(storageKey);
+    if (stored !== null) setShowChecked(stored === "true");
+  }, [storageKey]);
 
   const enableEditing = () => {
     setIsEditing(true);
@@ -30,9 +35,13 @@ export const ListItem = ({ data, index }: ListItemProps) => {
 
   const disableEditing = () => setIsEditing(false);
 
-  const toggleShowChecked = () => setShowChecked((prev) => !prev);
+  const toggleShowChecked = () => {
+    setShowChecked((prev) => {
+      localStorage.setItem(storageKey, (!prev).toString());
+      return !prev;
+    });
+  };
 
-  // Фильтруем видимые карточки
   const visibleCards = data.cards.filter(
     (card) => showChecked || localStorage.getItem(`card-checked-${card.id}`) !== "true"
   );
@@ -47,9 +56,8 @@ export const ListItem = ({ data, index }: ListItemProps) => {
         >
           <div
             {...provided.dragHandleProps}
-            className="dark:bg-slate-800 min-w-256 rounded-md bg-[#f1f2f4] shadow-md pb-2"
+            className="dark:bg-slate-800 min-w-256 rounded-md bg-[#f1f2f4] dark:bg-slate-800 shadow-md pb-2"
           >
-            {/* Заголовок списка + кнопка архивирования */}
             <ListHeader
               onAddCard={enableEditing}
               data={data}
@@ -57,36 +65,26 @@ export const ListItem = ({ data, index }: ListItemProps) => {
               toggleShowChecked={toggleShowChecked}
             />
 
-            {/* Дропаем карточки */}
             <Droppable droppableId={data.id} type="card">
               {(provided) => (
-                <AnimatePresence>
-                  {visibleCards.length > 0 && (
-                    <motion.ol
-                      ref={provided.innerRef}
-                      {...provided.droppableProps}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="mx-1 px-1 py-0.5 flex flex-col gap-y-2 overflow-hidden"
-                    >
-                      {visibleCards.map((card, index) => (
-                        <CardItem
-                          key={card.id}
-                          index={index}
-                          data={card}
-                          showChecked={showChecked}
-                        />
-                      ))}
-                      {provided.placeholder}
-                    </motion.ol>
-                  )}
-                </AnimatePresence>
+                <ol
+                  ref={provided.innerRef}
+                  {...provided.droppableProps}
+                  className="mx-1 px-1 py-0.5 flex flex-col gap-y-2"
+                >
+                  {visibleCards.map((card, index) => (
+                    <CardItem
+                      key={card.id}
+                      index={index}
+                      data={card}
+                      showChecked={showChecked}
+                    />
+                  ))}
+                  {provided.placeholder}
+                </ol>
               )}
             </Droppable>
 
-            {/* Форма для добавления новой карточки */}
             <CardForm
               listId={data.id}
               ref={textareaRef}
